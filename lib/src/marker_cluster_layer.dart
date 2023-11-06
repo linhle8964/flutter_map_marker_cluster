@@ -21,8 +21,9 @@ import 'package:latlong2/latlong.dart';
 class MarkerClusterLayer extends StatefulWidget {
   final MarkerClusterLayerOptions options;
   final FlutterMapState map;
+  final MarkerClusterNode? spiderfyCluster;
 
-  const MarkerClusterLayer(this.options, this.map, {Key? key})
+  const MarkerClusterLayer(this.options, this.map, this.spiderfyCluster, {Key? key})
       : super(key: key);
 
   @override
@@ -140,6 +141,10 @@ class _MarkerClusterLayerState extends State<MarkerClusterLayer>
     }
 
     _clusterManager.recalculateTopClusterLevelProperties();
+
+    if(widget.spiderfyCluster != null) {
+      _spiderfy(widget.spiderfyCluster!);
+    }
   }
 
   @override
