@@ -21,10 +21,12 @@ class MarkerClusterLayer extends StatefulWidget {
   final MarkerClusterLayerOptions options;
   final MapController mapController;
   final MapCamera mapCamera;
+  final MarkerClusterNode? spiderfyCluster;
 
   const MarkerClusterLayer({
     required this.mapController,
     required this.mapCamera,
+    this.spiderfyCluster,
     required this.options,
     super.key,
   });
@@ -146,6 +148,10 @@ class _MarkerClusterLayerState extends State<MarkerClusterLayer>
     }
 
     _clusterManager.recalculateTopClusterLevelProperties();
+
+    if(widget.spiderfyCluster != null) {
+      _spiderfy(widget.spiderfyCluster!);
+    }
   }
 
   @override

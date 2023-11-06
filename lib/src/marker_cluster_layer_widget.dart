@@ -5,8 +5,9 @@ import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
 
 class MarkerClusterLayerWidget extends StatelessWidget {
   final MarkerClusterLayerOptions options;
+  final MarkerClusterNode? spiderfyCluster;
 
-  const MarkerClusterLayerWidget({super.key, required this.options});
+  const MarkerClusterLayerWidget({super.key, required this.options, this.spiderfyCluster,});
 
   @override
   Widget build(BuildContext context) {
